@@ -65,6 +65,15 @@ export const mockSkills: Skill[] = [
     lastVerified: "2023-12-28",
     verificationSource: "AWS Deployments",
   },
+  {
+    id: "6",
+    name: "SQL",
+    category: "Database",
+    proficiency: 95,
+    verified: true,
+    lastVerified: "2024-01-02",
+    verificationSource: "Query Performance",
+  },
 ];
 
 export const mockEmployee: Employee = {
@@ -77,6 +86,87 @@ export const mockEmployee: Employee = {
   totalVerifications: 47,
   passportScore: 94,
 };
+
+// Additional employees for variety
+export const mockEmployees: Employee[] = [
+  mockEmployee,
+  {
+    id: "emp_002",
+    name: "Marcus Johnson",
+    role: "Construction Project Manager",
+    company: "BuildRight Inc",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    skills: [
+      {
+        id: "c1",
+        name: "AutoCAD",
+        category: "Design Software",
+        proficiency: 87,
+        verified: true,
+        lastVerified: "2024-01-01",
+        verificationSource: "Project Files",
+      },
+      {
+        id: "c2",
+        name: "Project Management",
+        category: "Leadership",
+        proficiency: 92,
+        verified: true,
+        lastVerified: "2023-12-29",
+        verificationSource: "Completion Records",
+      },
+      {
+        id: "c3",
+        name: "Safety Compliance",
+        category: "Regulatory",
+        proficiency: 96,
+        verified: true,
+        lastVerified: "2024-01-02",
+        verificationSource: "Certifications",
+      },
+    ],
+    totalVerifications: 23,
+    passportScore: 89,
+  },
+  {
+    id: "emp_003",
+    name: "Elena Rodriguez",
+    role: "Registered Nurse",
+    company: "MediCare Hospital",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    skills: [
+      {
+        id: "n1",
+        name: "Critical Care",
+        category: "Clinical",
+        proficiency: 91,
+        verified: true,
+        lastVerified: "2024-01-02",
+        verificationSource: "Patient Records",
+      },
+      {
+        id: "n2",
+        name: "IV Therapy",
+        category: "Procedure",
+        proficiency: 94,
+        verified: true,
+        lastVerified: "2024-01-01",
+        verificationSource: "Clinical Hours",
+      },
+      {
+        id: "n3",
+        name: "EMR Systems",
+        category: "Technology",
+        proficiency: 88,
+        verified: true,
+        lastVerified: "2023-12-30",
+        verificationSource: "System Logs",
+      },
+    ],
+    totalVerifications: 34,
+    passportScore: 92,
+  },
+];
 
 export interface CompanyStack {
   id: string;
@@ -93,3 +183,21 @@ export const mockCompany: CompanyStack = {
   requiredSkills: ["AWS", "Snowflake", "Python", "dbt"],
   techStack: ["AWS EC2", "Snowflake", "Apache Airflow", "dbt Cloud", "Python 3.11"],
 };
+
+export const mockCompanies: CompanyStack[] = [
+  mockCompany,
+  {
+    id: "comp_002",
+    name: "MegaBuild Construction",
+    industry: "Construction",
+    requiredSkills: ["AutoCAD", "Project Management", "Safety Compliance"],
+    techStack: ["AutoCAD 2024", "Procore", "BIM 360", "MS Project"],
+  },
+  {
+    id: "comp_003",
+    name: "HealthFirst Network",
+    industry: "Healthcare",
+    requiredSkills: ["Critical Care", "IV Therapy", "EMR Systems"],
+    techStack: ["Epic EMR", "Cerner", "Medical Devices", "HIPAA Protocols"],
+  },
+];
