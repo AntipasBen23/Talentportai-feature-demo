@@ -1,10 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import SkillsPassport from "@/components/SkillsPassport";
 import StackMatcher from "@/components/StackMatcher";
+import ContextPackage from "@/components/ContextPackage";
 import { mockEmployee, mockCompany } from "@/data/mockData";
 
 export default function Home() {
+  const [matchScore, setMatchScore] = useState<number | null>(null);
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
       {/* Hero Section */}
@@ -19,7 +23,7 @@ export default function Home() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8">
           {/* Left: Skills Passport */}
           <div>
             <h2 className="text-2xl font-bold text-white mb-4">Employee Profile</h2>
@@ -29,9 +33,24 @@ export default function Home() {
           {/* Right: Stack Matcher */}
           <div>
             <h2 className="text-2xl font-bold text-white mb-4">Company Requirements</h2>
-            <StackMatcher employee={mockEmployee} company={mockCompany} />
+            <StackMatcher 
+              employee={mockEmployee} 
+              company={mockCompany}
+              onMatchCalculated={setMatchScore}
+            />
           </div>
         </div>
+
+        {/* Context Package Section */}
+        {matchScore !== null && (
+          <div className="max-w-6xl mx-auto mb-16">
+            <ContextPackage 
+              employee={mockEmployee}
+              company={mockCompany}
+              matchScore={matchScore}
+            />
+          </div>
+        )}
 
         {/* Feature Highlights */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
