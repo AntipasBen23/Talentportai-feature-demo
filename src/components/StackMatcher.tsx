@@ -6,9 +6,10 @@ import { Employee, CompanyStack } from "@/data/mockData";
 interface StackMatcherProps {
   employee: Employee;
   company: CompanyStack;
+  onMatchCalculated?: (score: number) => void;
 }
 
-export default function StackMatcher({ employee, company }: StackMatcherProps) {
+export default function StackMatcher({ employee, company, onMatchCalculated }: StackMatcherProps) {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [matchScore, setMatchScore] = useState<number | null>(null);
 
@@ -25,6 +26,11 @@ export default function StackMatcher({ employee, company }: StackMatcherProps) {
       const score = Math.round((matches.length / company.requiredSkills.length) * 100);
       setMatchScore(score);
       setIsAnalyzing(false);
+      
+      // Notify parent component
+      if (onMatchCalculated) {
+        onMatchCalculated(score);
+      }
     }, 2000);
   };
 
