@@ -16,23 +16,23 @@ export default function Home() {
 
   const handleEmployeeChange = (employee: typeof mockEmployees[0]) => {
     setSelectedEmployee(employee);
-    setMatchScore(null); // Reset match score when changing employee
+    setMatchScore(null);
   };
 
   const handleCompanyChange = (company: typeof mockCompanies[0]) => {
     setSelectedCompany(company);
-    setMatchScore(null); // Reset match score when changing company
+    setMatchScore(null);
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+    <main className="min-h-screen bg-[#F9FAFB]">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-[#1F3C93] mb-4">
             TalentPort Skills Passport™
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Real-time skill verification that proves borrowed talent can contribute on Day 1, not Week 3
           </p>
         </div>
@@ -55,20 +55,20 @@ export default function Home() {
         <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-8">
           {/* Left Column: Skills Passport */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-white mb-4">Employee Profile</h2>
+            <h2 className="text-2xl font-bold text-[#1F3C93] mb-4">Employee Profile</h2>
             <SkillsPassport employee={selectedEmployee} />
           </div>
 
           {/* Right Column: Activity Feed */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">Platform Activity</h2>
+            <h2 className="text-2xl font-bold text-[#1F3C93] mb-4">Platform Activity</h2>
             <ActivityFeed />
           </div>
         </div>
 
         {/* Stack Matcher Section */}
         <div className="max-w-7xl mx-auto mb-8">
-          <h2 className="text-2xl font-bold text-white mb-4">Company Requirements</h2>
+          <h2 className="text-2xl font-bold text-[#1F3C93] mb-4">Company Requirements</h2>
           <StackMatcher 
             employee={selectedEmployee} 
             company={selectedCompany}
@@ -89,32 +89,32 @@ export default function Home() {
 
         {/* Feature Highlights */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div className="text-[#00A8B5] text-3xl mb-3">⚡</div>
-            <h3 className="text-white font-semibold text-lg mb-2">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-md">
+            <div className="text-[#1ABC9C] text-3xl mb-3">⚡</div>
+            <h3 className="text-[#1F3C93] font-semibold text-lg mb-2">
               Instant Verification
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm">
               Real-time skill badges connected to actual work activity
             </p>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div className="text-[#00A8B5] text-3xl mb-3">🎯</div>
-            <h3 className="text-white font-semibold text-lg mb-2">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-md">
+            <div className="text-[#1ABC9C] text-3xl mb-3">🎯</div>
+            <h3 className="text-[#1F3C93] font-semibold text-lg mb-2">
               Smart Matching
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm">
               AI-powered tech stack alignment for perfect fit
             </p>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div className="text-[#00A8B5] text-3xl mb-3">🚀</div>
-            <h3 className="text-white font-semibold text-lg mb-2">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-md">
+            <div className="text-[#1ABC9C] text-3xl mb-3">🚀</div>
+            <h3 className="text-[#1F3C93] font-semibold text-lg mb-2">
               Zero Onboarding Friction
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm">
               Auto-generated context packages for immediate productivity
             </p>
           </div>

@@ -201,3 +201,13 @@ export const mockCompanies: CompanyStack[] = [
     techStack: ["Epic EMR", "Cerner", "Medical Devices", "HIPAA Protocols"],
   },
 ];
+
+// TalentPortAi Brand Colors
+export const COLORS = {
+  primary: "#1F3C93",      // Navy Blue (primary brand color)
+  secondary: "#1ABC9C",    // Teal (secondary brand color)
+  background: "#F9FAFB",   // Light gray background
+  white: "#FFFFFF",
+  dark: "#1F2937",
+  accent: "#10B981",       // Success green
+};

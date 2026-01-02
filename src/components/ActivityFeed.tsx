@@ -106,25 +106,25 @@ export default function ActivityFeed() {
   };
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+    <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-bold text-white">Live Activity</h3>
+        <h3 className="text-xl font-bold text-[#1F3C93]">Live Activity</h3>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <span className="text-sm text-gray-400">Real-time</span>
+          <div className="w-2 h-2 bg-[#1ABC9C] rounded-full animate-pulse"></div>
+          <span className="text-sm text-gray-600">Real-time</span>
         </div>
       </div>
 
       <div className="space-y-3">
         {newActivity && (
-          <div className="bg-[#00A8B5]/30 rounded-lg p-3 border border-[#00A8B5] animate-pulse">
+          <div className="bg-[#1ABC9C]/10 rounded-lg p-3 border border-[#1ABC9C] animate-pulse">
             <div className="flex items-start gap-3">
               <span className="text-xl">{getIcon(newActivity.type)}</span>
               <div className="flex-1">
-                <p className="text-white text-sm">
+                <p className="text-gray-900 text-sm">
                   <span className="font-semibold">{newActivity.user}</span> {newActivity.message}
                 </p>
-                <p className="text-xs text-gray-400 mt-1">{newActivity.timestamp}</p>
+                <p className="text-xs text-gray-500 mt-1">{newActivity.timestamp}</p>
               </div>
             </div>
           </div>
@@ -133,15 +133,15 @@ export default function ActivityFeed() {
         {activities.map((activity) => (
           <div
             key={activity.id}
-            className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-all"
+            className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-all border border-gray-200"
           >
             <div className="flex items-start gap-3">
               <span className="text-xl">{getIcon(activity.type)}</span>
               <div className="flex-1">
-                <p className="text-white text-sm">
+                <p className="text-gray-900 text-sm">
                   <span className="font-semibold">{activity.user}</span> {activity.message}
                 </p>
-                <p className="text-xs text-gray-400 mt-1">{activity.timestamp}</p>
+                <p className="text-xs text-gray-500 mt-1">{activity.timestamp}</p>
               </div>
             </div>
           </div>

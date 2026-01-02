@@ -8,7 +8,7 @@ interface SkillsPassportProps {
 
 export default function SkillsPassport({ employee }: SkillsPassportProps) {
   return (
-    <div className="bg-gradient-to-br from-[#0D4F5C] to-[#00A8B5] rounded-2xl p-8 text-white shadow-2xl max-w-2xl">
+    <div className="bg-gradient-to-br from-[#1F3C93] to-[#1ABC9C] rounded-2xl p-8 text-white shadow-2xl max-w-2xl">
       {/* Header */}
       <div className="flex items-center gap-6 mb-8">
         <img
@@ -31,7 +31,7 @@ export default function SkillsPassport({ employee }: SkillsPassportProps) {
         </div>
         <div className="w-full bg-white/20 rounded-full h-3">
           <div
-            className="bg-[#FF6B35] h-3 rounded-full transition-all duration-1000"
+            className="bg-[#1ABC9C] h-3 rounded-full transition-all duration-1000"
             style={{ width: `${employee.passportScore}%` }}
           />
         </div>
@@ -52,7 +52,7 @@ export default function SkillsPassport({ employee }: SkillsPassportProps) {
               <div className="flex items-center gap-3">
                 <span className="font-semibold">{skill.name}</span>
                 {skill.verified && (
-                  <span className="text-green-400 text-sm">✓ Verified</span>
+                  <span className="text-[#1ABC9C] text-sm">✓ Verified</span>
                 )}
               </div>
               <span className="text-sm text-white/70">{skill.proficiency}%</span>
