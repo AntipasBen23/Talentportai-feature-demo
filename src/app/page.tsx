@@ -1,7 +1,8 @@
 "use client";
 
 import SkillsPassport from "@/components/SkillsPassport";
-import { mockEmployee } from "@/data/mockData";
+import StackMatcher from "@/components/StackMatcher";
+import { mockEmployee, mockCompany } from "@/data/mockData";
 
 export default function Home() {
   return (
@@ -17,13 +18,23 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Demo Section */}
-        <div className="flex justify-center">
-          <SkillsPassport employee={mockEmployee} />
+        {/* Two Column Layout */}
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+          {/* Left: Skills Passport */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">Employee Profile</h2>
+            <SkillsPassport employee={mockEmployee} />
+          </div>
+
+          {/* Right: Stack Matcher */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">Company Requirements</h2>
+            <StackMatcher employee={mockEmployee} company={mockCompany} />
+          </div>
         </div>
 
         {/* Feature Highlights */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <div className="text-[#00A8B5] text-3xl mb-3">⚡</div>
             <h3 className="text-white font-semibold text-lg mb-2">
