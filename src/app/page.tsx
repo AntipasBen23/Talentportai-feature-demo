@@ -5,10 +5,24 @@ import SkillsPassport from "@/components/SkillsPassport";
 import StackMatcher from "@/components/StackMatcher";
 import ContextPackage from "@/components/ContextPackage";
 import ActivityFeed from "@/components/ActivityFeed";
-import { mockEmployee, mockCompany } from "@/data/mockData";
+import EmployeeSelector from "@/components/EmployeeSelector";
+import CompanySelector from "@/components/CompanySelector";
+import { mockEmployees, mockCompanies } from "@/data/mockData";
 
 export default function Home() {
+  const [selectedEmployee, setSelectedEmployee] = useState(mockEmployees[0]);
+  const [selectedCompany, setSelectedCompany] = useState(mockCompanies[0]);
   const [matchScore, setMatchScore] = useState<number | null>(null);
+
+  const handleEmployeeChange = (employee: typeof mockEmployees[0]) => {
+    setSelectedEmployee(employee);
+    setMatchScore(null); // Reset match score when changing employee
+  };
+
+  const handleCompanyChange = (company: typeof mockCompanies[0]) => {
+    setSelectedCompany(company);
+    setMatchScore(null); // Reset match score when changing company
+  };
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
@@ -23,12 +37,26 @@ export default function Home() {
           </p>
         </div>
 
+        {/* Selectors */}
+        <div className="max-w-7xl mx-auto mb-8">
+          <EmployeeSelector
+            employees={mockEmployees}
+            selectedEmployee={selectedEmployee}
+            onSelect={handleEmployeeChange}
+          />
+          <CompanySelector
+            companies={mockCompanies}
+            selectedCompany={selectedCompany}
+            onSelect={handleCompanyChange}
+          />
+        </div>
+
         {/* Main Grid Layout */}
         <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-8">
           {/* Left Column: Skills Passport */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-bold text-white mb-4">Employee Profile</h2>
-            <SkillsPassport employee={mockEmployee} />
+            <SkillsPassport employee={selectedEmployee} />
           </div>
 
           {/* Right Column: Activity Feed */}
@@ -42,8 +70,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto mb-8">
           <h2 className="text-2xl font-bold text-white mb-4">Company Requirements</h2>
           <StackMatcher 
-            employee={mockEmployee} 
-            company={mockCompany}
+            employee={selectedEmployee} 
+            company={selectedCompany}
             onMatchCalculated={setMatchScore}
           />
         </div>
@@ -52,8 +80,8 @@ export default function Home() {
         {matchScore !== null && (
           <div className="max-w-7xl mx-auto mb-16">
             <ContextPackage 
-              employee={mockEmployee}
-              company={mockCompany}
+              employee={selectedEmployee}
+              company={selectedCompany}
               matchScore={matchScore}
             />
           </div>
