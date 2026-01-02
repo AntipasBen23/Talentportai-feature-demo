@@ -4,6 +4,7 @@ import { useState } from "react";
 import SkillsPassport from "@/components/SkillsPassport";
 import StackMatcher from "@/components/StackMatcher";
 import ContextPackage from "@/components/ContextPackage";
+import ActivityFeed from "@/components/ActivityFeed";
 import { mockEmployee, mockCompany } from "@/data/mockData";
 
 export default function Home() {
@@ -22,28 +23,34 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8">
-          {/* Left: Skills Passport */}
-          <div>
+        {/* Main Grid Layout */}
+        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-8">
+          {/* Left Column: Skills Passport */}
+          <div className="lg:col-span-2">
             <h2 className="text-2xl font-bold text-white mb-4">Employee Profile</h2>
             <SkillsPassport employee={mockEmployee} />
           </div>
 
-          {/* Right: Stack Matcher */}
+          {/* Right Column: Activity Feed */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">Company Requirements</h2>
-            <StackMatcher 
-              employee={mockEmployee} 
-              company={mockCompany}
-              onMatchCalculated={setMatchScore}
-            />
+            <h2 className="text-2xl font-bold text-white mb-4">Platform Activity</h2>
+            <ActivityFeed />
           </div>
+        </div>
+
+        {/* Stack Matcher Section */}
+        <div className="max-w-7xl mx-auto mb-8">
+          <h2 className="text-2xl font-bold text-white mb-4">Company Requirements</h2>
+          <StackMatcher 
+            employee={mockEmployee} 
+            company={mockCompany}
+            onMatchCalculated={setMatchScore}
+          />
         </div>
 
         {/* Context Package Section */}
         {matchScore !== null && (
-          <div className="max-w-6xl mx-auto mb-16">
+          <div className="max-w-7xl mx-auto mb-16">
             <ContextPackage 
               employee={mockEmployee}
               company={mockCompany}
